@@ -3,9 +3,9 @@ import validate.PassWordVId;
 import sys.Door; 
 
 public class APP {
+    Door door = new Door();
     public static void main(String[] args) {
         while(true){
-            Door door = new Door();
             System.out.print("\033[H\033[2J");
             System.out.flush();
             System.out.println("=========源梦计划-门禁系统=========");

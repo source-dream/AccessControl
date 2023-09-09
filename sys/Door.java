@@ -4,9 +4,10 @@ public class Door {
 
     private boolean state = false; // 门的状态
 
-    public void open() {
+    public boolean open() {
         System.out.println("门已打开");
         this.state = true;
+        return true;
     }
 
     public void close() {
