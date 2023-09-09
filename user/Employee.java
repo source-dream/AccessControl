@@ -1,3 +1,6 @@
-public class Employee {
+package user;
+
+public class Employee extends Guest{
+
 
 }
