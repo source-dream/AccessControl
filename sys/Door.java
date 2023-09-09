@@ -1,3 +1,14 @@
+/*
+# -*-coding:utf-8 -*-
+'''
+@File    :   Door.java
+@Time    :   2023/09/09 19:05:18
+@Author  :   sourcedream
+@Contact :   admin@sourcedream.cn
+@License :   (C)Copyright 2023, sourcedream
+@Desc    :   None
+*/
+
 package sys;
 
 public class Door {
