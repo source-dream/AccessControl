@@ -4,6 +4,14 @@ public class Door {
 
     private boolean state = false; // 门的状态
 
+    public boolean getState(){
+        return this.state;
+    }
+
+    public void setState(boolean state){
+        this.state = state;
+    }
+
     public boolean open() {
         System.out.println("门已打开");
         this.state = true;
@@ -15,8 +23,5 @@ public class Door {
         this.state = false;
     }
 
-    public boolean getState() {
-        return this.state;
-    }
 
 }
