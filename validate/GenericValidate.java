@@ -2,7 +2,7 @@ package validate;
 
 import java.util.Scanner;
 
-public class GenericVaildate {
+public class GenericValidate {
     private static String[] passwords = {"88888888", "666666"};
     public static void identify() {
         try{

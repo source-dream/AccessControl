@@ -16,6 +16,7 @@ public class InputEquip {
         System.out.println("请输入认证信息: ");
         Scanner input= new Scanner(System.in);
         String info=input.next();
+        input.close();
         this.setInput (info);
     }
 }
