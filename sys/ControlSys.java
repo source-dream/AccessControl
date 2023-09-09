@@ -5,6 +5,6 @@ public class ControlSys {
     private Computer computer;
     private InputEquip inPutEquip;
     public void work(){
-        inPutEquip.getInput();
+        String inputInfo = inPutEquip.getInput();
     }
 }

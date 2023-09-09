@@ -2,26 +2,13 @@ package sys;
 
 public class Door {
 
-    private boolean state = false; // 门的状态
-
-    public boolean getState(){
-        return this.state;
-    }
-
-    public void setState(boolean state){
-        this.state = state;
-    }
-
-    public boolean open() {
-        System.out.println("门已打开");
-        this.state = true;
-        return true;
-    }
-
-    public void close() {
-        System.out.println("门已关闭");
-        this.state = false;
-    }
-
+    public final static String OPEN="门己开启";
+    public final static String CLOSE="门已关闭";
+    private String state = CLOSE;
+    public Door (){this.setState(CLOSE);}
+    public void open() {this.setState(OPEN);}
+    public void close() {this.setState(CLOSE);}
+    public String getState() {return this.state;}
+    public void setState(String state){this.state = state;}
 
 }
