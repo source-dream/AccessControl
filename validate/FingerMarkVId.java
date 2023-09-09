@@ -21,4 +21,8 @@ public class FingerMarkVId implements Validate{
     public boolean check(){
         return false;
     }
+
+    public String getInput() {
+        return input;
+    }
 }

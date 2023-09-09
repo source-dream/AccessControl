@@ -18,7 +18,7 @@ public class PassWordVId  implements Validate{
     }
     public boolean check(){
         for (String password : this.passWords) {
-            if (password.equals(password)) {
+            if (input.equals(password)) {
                 return true;
             }
         }

@@ -20,9 +20,10 @@ public class Guest{
     public Guest (String name){this.name = name;}
     
     public void pressRing (ControlSys controlSys){
-        Scanner scanner=new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.print("访客("+this.getName()+")按门铃？[y/n]:");
         String btn = scanner.nextLine();
+        scanner.close();
         if(btn.equals ("y")){
             controlSys.ring();
         }else if(btn.equals("n")){

@@ -8,7 +8,6 @@
 @Desc    :   None
 */
 
-import java.util.Scanner;
 import user.Employee;
 import sys.ControlSys;
 public class APP {
