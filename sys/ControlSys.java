@@ -41,21 +41,53 @@ public class ControlSys {
                 door.open();
                 //开启电子
                 System.out.println("身份验证成功");
+                door.open();  
                 inPutEquip.setInput(null);
+                System.out.println("电子门开启");
                 //清空输入设备缓存
             }else{
                 System.out.println("身份验证失败");
             }
-                // if(this.getOpenSign()==true){
-                // door.open();
-                // System.out.println("管理员开启了电子门");
-                // this.s (0);
-            //电子/1开1门信号归零
         }
+            
+            /* 检查开门信号 */
+            if(this.getOpenSign()==true){
+                door.open();                        // 开启电子门
+                System.out.println("管理员开启了电子门");
+                this.setOpenSign(false);               // 电子门开门信号归零
+            }
+
+            /* 电子门开启状态将维持5秒后关闭 */
+            if(door.getState().equals(Door.OPEN)){
+                try {
+                    Thread.sleep(5000);             // 让电子门开启状态维持5秒
+                } catch (InterruptedException e) {
+                    System.out.println(e.getMessage());
+                }
+                door.close();                       // 关闭电子门
+                System.out.println("电子门关闭");
+            }
     }
-    public void ring() {this.ring = true;}      
-    public InputEquip getInputEquip(){return this.inPutEquip;}
-    public boolean getRing(){return this.ring;}
-    // public boolean getOpenSign(){return this.openSign;}
-    // public boolean getOpenSign(){return this.openSign;}
+    public void ring() {
+        this.ring = true;
+    }      
+    public InputEquip getInputEquip(){
+        return this.inPutEquip;
+    }
+    public boolean getRing(){
+        return this.ring;
+    }
+    public void setRing(boolean ring) {
+        this.ring = ring;
+    }
+    public Computer getComputer() {
+        return computer;
+    }
+    public Door getDoor() {
+        return door;
+    }
+    public boolean getOpenSign(){return this.openSign;}
+    public void setOpenSign(boolean openSign) {
+        this.openSign = openSign;
+    }
 }

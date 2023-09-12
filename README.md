@@ -12,3 +12,5 @@
 javac APP.java
 java APP
 ```
+
+`Get-ChildItem -Recurse -Filter *.class | Remove-Item -Force`

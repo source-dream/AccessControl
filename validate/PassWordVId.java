@@ -11,20 +11,18 @@
 package validate;
 
 public class PassWordVId  implements Validate{
-    private String input;
-    private String[] passWords = {"sourcedream"};
-    public PassWordVId(String input){
-        this.input = input;
+    private String passStr;
+    private String[] passWords = null;
+    public PassWordVId(String passStr, String[] passWords){
+        this.passStr = passStr;
+        this.passWords = passWords;
     }
     public boolean check(){
         for (String password : this.passWords) {
-            if (input.equals(password)) {
+            if (passStr.equals(password)) {
                 return true;
             }
         }
         return false;
-    }
-    public String getInput() {
-        return input;
     }
 }

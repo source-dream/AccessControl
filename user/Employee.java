@@ -15,5 +15,4 @@ import sys.ControlSys;
 public class Employee extends Guest{
     public Employee(){super();}
     public Employee(String name){super(name);}
-    public void input(ControlSys controlSys){controlSys.getInputEquip().input();}
 }

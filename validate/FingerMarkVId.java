@@ -12,17 +12,18 @@
 package validate;
 
 public class FingerMarkVId implements Validate{
-    private String input;
-    
-    public FingerMarkVId(String input){
-        this.input = input;
+    private String passStr;
+    private String[] passWords = null;
+    public FingerMarkVId(String passStr, String[] passWords){
+        this.passStr = passStr;
+        this.passWords = passWords;
     }
-
     public boolean check(){
+        for(String cardID :this.passWords){
+            if(passStr.equals(cardID)){
+                return true;
+            }
+        }
         return false;
-    }
-
-    public String getInput() {
-        return input;
     }
 }

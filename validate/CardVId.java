@@ -12,7 +12,18 @@
 package validate;
 
 public class CardVId  implements Validate{
+    private String passStr;
+    private String[] passWords = null;
+    public CardVId(String passStr, String[] passWords){
+        this.passStr = passStr;
+        this.passWords = passWords;
+    }
     public boolean check(){
+        for(String cardID :this.passWords){
+            if(passStr.equals(cardID)){
+                return true;
+            }
+        }
         return false;
     }
 }
