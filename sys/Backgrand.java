@@ -23,19 +23,22 @@ public class Backgrand {
             Database database = new Database();
             if(strs[0].equals("info")){
                 database.getAllEmployees();
+                try {
+                    Thread.sleep(5000);         
+                } catch (InterruptedException e) {
+                    System.out.println(e.getMessage());
+                }
             }else if(strs[0].equals("add")){
                 database.addEmployee(strs[1], strs[2]);
+                System.out.println("添加成功");
             }else if(strs[0].equals("remove")){
                 database.deleteEmployee(Integer.parseInt((strs[1])));
+                System.out.println("删除成功");
             }else if(strs[0].equals("update")){
                 database.changePassword(strs[1], strs[2]);
+                System.out.println("修改成功");
             }else{
                 System.out.println("输入操作错误，请重新输入");
-            }
-            try {
-                Thread.sleep(5000);         
-            } catch (InterruptedException e) {
-                System.out.println(e.getMessage());
             }
             database.closeConnection();
         }

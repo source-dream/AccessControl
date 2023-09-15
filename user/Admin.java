@@ -10,32 +10,22 @@
 
 
 package user;
+import sys.*;
+import java.util.Scanner;
 public class Admin extends Employee {
 
     public Admin() {
         super();
     }
-
-    /**
-     * 创建管理员
-     * 
-     * @param name 管理员姓名
-     */
     public Admin(String name) {
         super(name);
     }
-
-    /**
-     * 管理员的工作方法1，通过控制室的按钮开启电子门
-     * 
-     * @param controlSys
-     */
     public void work(ControlSys controlSys) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("管理员(" + this.getName() + ")按开门按钮？[y/n]:");
         String btn = scanner.nextLine();
         if (btn.equals("y")) {
-            controlSys.setOpenSign(1);
+            controlSys.setOpenSign(true);
             System.out.print("管理员(" + this.getName() + ")按下开门按钮");
         } else if (btn.equals("exit")) {
             controlSys.getInputEquip().setInput("exit");
@@ -51,10 +41,10 @@ public class Admin extends Employee {
      * @param guest
      */
     public void work(ControlSys controlSys, Guest guest) {
-        if (controlSys.getRing() == 1) {
+        if (controlSys.getRing() == true) {
         	System.out.print("访客(" + guest.getName() + ")在按门铃");
             this.work(controlSys);
-            controlSys.setRing(0);
+            controlSys.setRing(false);
             System.out.print("管理员(" + this.getName() +")关闭门铃");
         }
     }
@@ -68,7 +58,7 @@ public class Admin extends Employee {
      */
     public void work(ControlSys controlSys, String valType, String valStr) {
         if (valType.equals("pa")) {
-            controlSys.getComputer().addPassWord(Integer.parseInt(valStr));
+            // controlSys.getComputer().addPassWord(Integer.parseInt(valStr));
             System.out.print(
                     "管理员(" + this.getName() + ")录入新的密码验证信息");
         } else if (valType.equals("ca")) {

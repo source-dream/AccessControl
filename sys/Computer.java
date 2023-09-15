@@ -12,13 +12,11 @@ package sys;
 
 import validate.*;                                                                         
 
-public class Computer {
-    private String[] passWord   = new String[100];  // 计算机存储的雇员密码，数字字符串
+public class Computer { 
     private String[] card       = new String[100];  // 计算机存储的雇员胸卡号，字符串形式
     private String[] fingerMark = new String[100];  // 计算机存储的雇员指纹，字符串形式
     
     public Computer(){
-        passWord[0]   = "sourcedream";
         card[0]   = "sourcedream";
         fingerMark[0] = "sourcedream";
     }
@@ -26,7 +24,6 @@ public class Computer {
     public boolean validate(String inputInfo){
         Validate validate = null;
         String[] strs =inputInfo.split(":");
-        System.out.println("test");
         String equip =strs[0]; // 设备
         boolean result = false;
         if(strs.length == 1){
@@ -49,7 +46,7 @@ public class Computer {
             validate = new FingerMarkVId(passStr, fingerMark);
             result  =validate.check();
         }else if("pass".equals(equip)){
-            validate = new PassWordVId(passStr, passWord);
+            validate = new PassWordVId(strs[1], strs[2]);
             result  = validate.check();
         }else {
             result = false;
@@ -72,21 +69,10 @@ public class Computer {
             }
         }
     }
-    public void addPassWord(int passWord) {
-        for(int i=0;i<100;i++){
-            if(this.passWord[i]==null){
-                this.passWord[i] = passWord*2+"";
-                return;
-            }
-        }
-    }
     public String[] getCard() {
         return card;
     }
     public String[] getfingerMark() {
         return fingerMark;
-    }
-    public String[] getPassWord() {
-        return passWord;
     }
 }

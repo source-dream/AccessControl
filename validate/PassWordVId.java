@@ -10,19 +10,23 @@
 */
 package validate;
 
+import java.util.Map;
+
+import sys.*;
+
 public class PassWordVId  implements Validate{
-    private String passStr;
-    private String[] passWords = null;
-    public PassWordVId(String passStr, String[] passWords){
-        this.passStr = passStr;
-        this.passWords = passWords;
+    private String id;
+    private String pwd;
+    private Map<String, String> passWords;
+    public PassWordVId(String id, String pwd){
+        this.id = id;
+        this.pwd = pwd;
+        Database database = new Database();
+        this.passWords =  database.getPassword();
+        database.closeConnection();
     }
     public boolean check(){
-        for (String password : this.passWords) {
-            if (passStr.equals(password)) {
-                return true;
-            }
-        }
-        return false;
+        String storedPwd = passWords.get(id);
+        return storedPwd != null && storedPwd.equals(pwd);
     }
 }

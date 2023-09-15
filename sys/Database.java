@@ -16,6 +16,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 import user.Employee;
 
@@ -114,6 +116,25 @@ public class Database {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+    public Map<String, String> getPassword(){
+        Map<String, String> passwordMap = new HashMap<>(); 
+        String query = "SELECT empid, emppwd FROM user";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                String empid = resultSet.getString("empid");
+                String emppwd = resultSet.getString("emppwd");
+                passwordMap.put(empid, emppwd);
+            }
+            preparedStatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return passwordMap;
+
     }
     public static void main(String[] args){
         try {

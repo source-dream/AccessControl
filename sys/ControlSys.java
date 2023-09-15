@@ -36,6 +36,16 @@ public class ControlSys {
             System.out.println("门禁系统启动");
     }
     public void work(){
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+        System.out.println("门禁系统的使用方法\n"+
+            "1.模拟输入密码：以\"pass\"开头，后跟密码\n"+
+            "2.模拟刷卡：以\"card\"开头，后跟卡号\n"+
+            "3.模拟取指纹：以\"finger\"开头，后跟表示指纹的字符串\n"+
+            "4.模拟管理员按下开门按钮：输入y\n"+
+            "5.管理界面：输入admin");
+            System.out.println("***************************************************");
+            System.out.println("门禁系统启动");
         if (inPutEquip.getInput()!=null){
             if(inPutEquip.getInput().equals("exit")){
                 System.out.println("门禁系统关闭");
